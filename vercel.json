@@ -1,5 +1,17 @@
 {
+  "functions": {
+    "src/pages/RedirectPage.tsx": {
+      "maxDuration": 10
+    }
+  },
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    },
+    {
+      "source": "/((?!api|_next|static|favicon.ico).*)",
+      "destination": "/"
+    }
   ]
 }
