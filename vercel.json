@@ -1,9 +1,4 @@
 {
-  "functions": {
-    "src/pages/RedirectPage.tsx": {
-      "maxDuration": 10
-    }
-  },
   "rewrites": [
     {
       "source": "/api/:path*",
