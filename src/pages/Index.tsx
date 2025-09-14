@@ -12,32 +12,33 @@ const Index = () => {
   const { user } = useAuth();
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-background via-accent/5 to-primary/5">
-      {/* SEO Meta Tags */}
-      <head>
-        <title>lnkzip - Free URL Shortener with QR Codes & Analytics</title>
-        <meta name="description" content="Shorten URLs, generate QR codes, and track clicks with lnkzip - the fastest free URL shortener with advanced analytics and custom links." />
-        <meta name="keywords" content="url shortener, link shortener, qr code generator, url analytics, custom links, free url shortener" />
-        <link rel="canonical" href="https://lnkzip.com" />
-      </head>
+    <div className="min-h-screen flex flex-col relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/5 to-secondary/10">
+        <div className="absolute inset-0 opacity-50">
+          <div className="w-full h-full bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 animate-pulse"></div>
+        </div>
+      </div>
 
       <Navbar />
       
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         {/* Hero Section */}
-        <section className="py-12 lg:py-20">
+        <section className="py-20 lg:py-32 relative">
           <div className="container mx-auto px-4">
-            <div className="text-center space-y-6 mb-12">
-              <Badge variant="secondary" className="mb-4">
-                🚀 Free URL Shortener & QR Generator
+            <div className="text-center space-y-8 mb-16 animate-fade-in">
+              <Badge variant="secondary" className="mb-6 text-sm px-4 py-2 bg-gradient-card shadow-subtle animate-glow">
+                ⚡ Free URL Shortener API • No Sign Up Required
               </Badge>
-              <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-                Shorten. Track. Analyze.
+              <h1 className="text-5xl lg:text-7xl font-bold bg-gradient-hero bg-clip-text text-transparent leading-tight">
+                Free URL Shortener<br />
+                <span className="text-4xl lg:text-5xl">with QR Code Generator</span>
               </h1>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Transform long URLs into powerful short links with QR codes, 
-                detailed analytics, and professional branding. 
-                <span className="font-semibold text-foreground"> Free forever.</span>
+              <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+                Create <span className="font-semibold text-primary">custom short URLs</span> with tracking, 
+                convert <span className="font-semibold text-secondary">links to QR codes</span>, 
+                and analyze performance.
+                <span className="block mt-2 font-bold text-foreground text-lg">🎯 Best free URL shortener with custom names</span>
               </p>
             </div>
 
@@ -45,87 +46,93 @@ const Index = () => {
             <URLShortener />
 
             {/* Features Grid */}
-            <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <Card className="border-0 bg-gradient-to-br from-card to-primary/5 hover:shadow-lg transition-shadow">
-                <CardContent className="pt-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <Zap className="h-6 w-6 text-primary" />
+            <div className="mt-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in">
+              <Card className="group border-0 bg-gradient-card hover:shadow-glow transition-all duration-500 hover:scale-105 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                <CardContent className="pt-8 relative z-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-3 bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-colors shadow-button">
+                      <Zap className="h-7 w-7 text-primary" />
                     </div>
-                    <h3 className="text-lg font-semibold">Lightning Fast</h3>
+                    <h3 className="text-xl font-bold">Free URL Shortener API</h3>
                   </div>
-                  <p className="text-muted-foreground">
-                    Create short URLs instantly with our optimized infrastructure. No delays, no waiting.
+                  <p className="text-muted-foreground leading-relaxed">
+                    Access our powerful URL shortening API completely free. No sign up required, no limits on basic usage.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="border-0 bg-gradient-to-br from-card to-secondary/5 hover:shadow-lg transition-shadow">
-                <CardContent className="pt-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-secondary/10 rounded-lg">
-                      <QrCode className="h-6 w-6 text-secondary" />
+              <Card className="group border-0 bg-gradient-card hover:shadow-glow transition-all duration-500 hover:scale-105 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-secondary/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                <CardContent className="pt-8 relative z-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-3 bg-secondary/10 rounded-xl group-hover:bg-secondary/20 transition-colors shadow-button">
+                      <QrCode className="h-7 w-7 text-secondary" />
                     </div>
-                    <h3 className="text-lg font-semibold">QR Code Generator</h3>
+                    <h3 className="text-xl font-bold">Link to QR Code Generator</h3>
                   </div>
-                  <p className="text-muted-foreground">
-                    Automatically generate high-quality QR codes for every shortened URL. Perfect for print and digital.
+                  <p className="text-muted-foreground leading-relaxed">
+                    Convert any link to QR code instantly. Best free QR generator with high-resolution downloads for print and digital use.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="border-0 bg-gradient-to-br from-card to-accent/20 hover:shadow-lg transition-shadow">
-                <CardContent className="pt-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-accent/10 rounded-lg">
-                      <BarChart3 className="h-6 w-6 text-accent-foreground" />
+              <Card className="group border-0 bg-gradient-card hover:shadow-glow transition-all duration-500 hover:scale-105 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                <CardContent className="pt-8 relative z-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-3 bg-accent/20 rounded-xl group-hover:bg-accent/30 transition-colors shadow-button">
+                      <BarChart3 className="h-7 w-7 text-accent-foreground" />
                     </div>
-                    <h3 className="text-lg font-semibold">Advanced Analytics</h3>
+                    <h3 className="text-xl font-bold">Free URL Shortener with Tracking</h3>
                   </div>
-                  <p className="text-muted-foreground">
-                    Track clicks, analyze traffic sources, and understand your audience with detailed insights.
+                  <p className="text-muted-foreground leading-relaxed">
+                    Track clicks, analyze sources, and monitor performance. Advanced analytics for your shortened URLs at no cost.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="border-0 bg-gradient-to-br from-card to-primary/5 hover:shadow-lg transition-shadow">
-                <CardContent className="pt-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <Link2 className="h-6 w-6 text-primary" />
+              <Card className="group border-0 bg-gradient-card hover:shadow-glow transition-all duration-500 hover:scale-105 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                <CardContent className="pt-8 relative z-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-3 bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-colors shadow-button">
+                      <Link2 className="h-7 w-7 text-primary" />
                     </div>
-                    <h3 className="text-lg font-semibold">Custom Links</h3>
+                    <h3 className="text-xl font-bold">Custom URL Shortener Free</h3>
                   </div>
-                  <p className="text-muted-foreground">
-                    Create branded short links with custom aliases that match your brand identity.
+                  <p className="text-muted-foreground leading-relaxed">
+                    Create custom short URLs with your preferred names. URL shortener with custom name feature included free.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="border-0 bg-gradient-to-br from-card to-secondary/5 hover:shadow-lg transition-shadow">
-                <CardContent className="pt-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-secondary/10 rounded-lg">
-                      <Shield className="h-6 w-6 text-secondary" />
+              <Card className="group border-0 bg-gradient-card hover:shadow-glow transition-all duration-500 hover:scale-105 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-secondary/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                <CardContent className="pt-8 relative z-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-3 bg-secondary/10 rounded-xl group-hover:bg-secondary/20 transition-colors shadow-button">
+                      <Shield className="h-7 w-7 text-secondary" />
                     </div>
-                    <h3 className="text-lg font-semibold">Enterprise Security</h3>
+                    <h3 className="text-xl font-bold">No Sign Up Required</h3>
                   </div>
-                  <p className="text-muted-foreground">
-                    Bank-level security with SSL encryption, spam protection, and malware detection.
+                  <p className="text-muted-foreground leading-relaxed">
+                    Start shortening URLs immediately. No registration, no email verification, no waiting time required.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="border-0 bg-gradient-to-br from-card to-accent/20 hover:shadow-lg transition-shadow">
-                <CardContent className="pt-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-accent/10 rounded-lg">
-                      <Globe className="h-6 w-6 text-accent-foreground" />
+              <Card className="group border-0 bg-gradient-card hover:shadow-glow transition-all duration-500 hover:scale-105 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                <CardContent className="pt-8 relative z-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-3 bg-accent/20 rounded-xl group-hover:bg-accent/30 transition-colors shadow-button">
+                      <Globe className="h-7 w-7 text-accent-foreground" />
                     </div>
-                    <h3 className="text-lg font-semibold">Global CDN</h3>
+                    <h3 className="text-xl font-bold">Link to QR Converter</h3>
                   </div>
-                  <p className="text-muted-foreground">
-                    Lightning-fast redirects worldwide with our global content delivery network.
+                  <p className="text-muted-foreground leading-relaxed">
+                    Convert links to QR codes with our advanced QR converter. Generate, customize, and download QR codes instantly.
                   </p>
                 </CardContent>
               </Card>
@@ -135,7 +142,7 @@ const Index = () => {
 
         {/* URL History Section */}
         {user && (
-          <section className="py-12 bg-muted/20">
+          <section className="py-16 bg-gradient-subtle/50 backdrop-blur-sm">
             <div className="container mx-auto px-4">
               <URLHistory />
             </div>
@@ -143,15 +150,24 @@ const Index = () => {
         )}
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-              Ready to get started?
+        <section className="py-24 bg-gradient-hero relative overflow-hidden">
+          <div className="absolute inset-0 opacity-20">
+            <div className="w-full h-full bg-gradient-to-r from-white/10 via-transparent to-white/10 animate-pulse"></div>
+          </div>
+          <div className="container mx-auto px-4 text-center relative z-10">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-8 text-white">
+              Start Using the Best Free URL Shortener
             </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Join thousands of users who trust lnkzip for their URL shortening needs.
-              Start creating powerful short links today.
+            <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
+              Join thousands who trust lnkzip for free URL shortening with custom names, 
+              QR code generation, and advanced tracking. No sign up required!
             </p>
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-white/80">
+              <span className="bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">✨ Free URL Shortener API</span>
+              <span className="bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">🔗 Custom Short URLs</span>
+              <span className="bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">📱 Link to QR Code</span>
+              <span className="bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">📊 Free Tracking</span>
+            </div>
           </div>
         </section>
       </main>
