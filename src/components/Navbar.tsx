@@ -23,7 +23,7 @@ export const Navbar: React.FC = () => {
             <Link2 className="h-8 w-8 text-primary" />
             <div>
               <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                lnkzip
+                LnkZip
               </h1>
               <p className="text-xs text-muted-foreground -mt-1">
                 Shorten • Track • Analyze
