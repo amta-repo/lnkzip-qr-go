@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>lnkzip - Free URL Shortener</title>
+    <link>https://lnkzip.com</link>
+    <description>Free URL shortener API with no sign up required. Create custom short URLs with tracking, generate QR codes, and get analytics.</description>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://lnkzip.com/rss.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Welcome to lnkzip - Free URL Shortener</title>
+      <link>https://lnkzip.com</link>
+      <description>Discover the ultimate free URL shortener with custom names, QR code generation, and powerful analytics. No sign up required.</description>
+      <pubDate>Wed, 02 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://lnkzip.com</guid>
+    </item>
+    
+    <item>
+      <title>Custom URL Shortener Features</title>
+      <link>https://lnkzip.com</link>
+      <description>Learn about our custom URL shortener features including link to QR code generation, click tracking, and real-time analytics.</description>
+      <pubDate>Wed, 02 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://lnkzip.com/features</guid>
+    </item>
+  </channel>
+</rss>
