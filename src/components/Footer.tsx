@@ -51,10 +51,10 @@ export const Footer: React.FC = () => {
         
         <div className="border-t mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            © 2024 lnkzip. All rights reserved.
+            © 2025 lnkzip. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground">
-            Made with ❤️ for the web
+            Developed by AMTECH-BJ
           </p>
         </div>
       </div>

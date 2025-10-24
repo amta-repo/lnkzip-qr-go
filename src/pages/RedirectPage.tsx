@@ -22,26 +22,21 @@ export const RedirectPage: React.FC = () => {
 
   const handleRedirect = async (code: string) => {
     try {
-      // Call the redirect function
-      const response = await fetch(`${window.location.origin}/functions/v1/redirect-url/${code}`, {
-        method: 'GET',
-        headers: {
-          'Authorization': `Bearer ${process.env.SUPABASE_ANON_KEY}`
-        }
+      // Try to call the edge function using Supabase client
+      const { data, error: functionError } = await supabase.functions.invoke('redirect-url', {
+        body: { shortCode: code }
       });
 
-      if (response.redirected) {
-        // If the response was redirected, follow it
-        window.location.href = response.url;
-        return;
+      if (functionError) {
+        throw new Error(functionError.message);
       }
 
-      if (response.status === 404) {
-        setError('Short URL not found');
-      } else if (response.status === 410) {
-        setError('This URL is no longer active');
-      } else if (!response.ok) {
-        setError('Failed to redirect');
+      if (data?.redirectUrl) {
+        // Redirect to the original URL
+        window.location.href = data.redirectUrl;
+        return;
+      } else {
+        setError('Failed to get redirect URL');
       }
     } catch (error) {
       console.error('Redirect error:', error);

@@ -25,8 +25,15 @@ serve(async (req) => {
   try {
     logStep("Function started");
 
-    const url = new URL(req.url);
-    const shortCode = url.pathname.split('/').pop();
+    let shortCode: string;
+    
+    if (req.method === "POST") {
+      const body = await req.json();
+      shortCode = body.shortCode;
+    } else {
+      const url = new URL(req.url);
+      shortCode = url.pathname.split('/').pop() || "";
+    }
     
     if (!shortCode) {
       throw new Error("Short code is required");
@@ -103,14 +110,24 @@ serve(async (req) => {
         }
       });
 
-    // Redirect to original URL
-    return new Response(null, {
-      status: 302,
-      headers: {
-        Location: urlData.original_url,
-        ...corsHeaders
-      }
-    });
+    // Return the redirect URL as JSON for function calls, or redirect for direct access
+    if (req.method === "POST") {
+      return new Response(JSON.stringify({ redirectUrl: urlData.original_url }), {
+        headers: {
+          'Content-Type': 'application/json',
+          ...corsHeaders
+        }
+      });
+    } else {
+      // Direct URL access - redirect
+      return new Response(null, {
+        status: 302,
+        headers: {
+          Location: urlData.original_url,
+          ...corsHeaders
+        }
+      });
+    }
 
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : String(error);
