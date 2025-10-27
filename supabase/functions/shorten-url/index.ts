@@ -50,7 +50,8 @@ serve(async (req) => {
         userId = userData.user?.id || null;
         logStep("User authenticated", { userId });
       } catch (error) {
-        logStep("Authentication failed, proceeding as anonymous", { error: error.message });
+        const errorMsg = error instanceof Error ? error.message : 'Unknown error';
+        logStep("Authentication failed, proceeding as anonymous", { error: errorMsg });
       }
     }
 
@@ -95,7 +96,8 @@ serve(async (req) => {
         title = titleMatch[1].trim();
       }
     } catch (error) {
-      logStep("Failed to fetch page title", { error: error.message });
+      const errorMsg = error instanceof Error ? error.message : 'Unknown error';
+      logStep("Failed to fetch page title", { error: errorMsg });
     }
 
     const baseUrl = req.headers.get("origin") || "https://lnkzip.com";

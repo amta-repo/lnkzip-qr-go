@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
               <div>API Documentation</div>
               <div>Help Center</div>
               <div>Status Page</div>
-              <div>Blog</div>
+              <a href="/blog" className="block hover:text-primary transition-colors">Blog</a>
             </div>
           </div>
           
@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
               <div>About Us</div>
               <div>Privacy Policy</div>
               <div>Terms of Service</div>
-              <div>Contact</div>
+              <a href="/contact" className="block hover:text-primary transition-colors">Contact</a>
             </div>
           </div>
         </div>
