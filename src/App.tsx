@@ -9,6 +9,9 @@ import { RedirectPage } from "./pages/RedirectPage";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
+import About from "./pages/About";
+import ApiDocs from "./pages/ApiDocs";
+import QRGenerator from "./pages/QRGenerator";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
@@ -27,6 +30,9 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/api" element={<ApiDocs />} />
+            <Route path="/qr-code-generator" element={<QRGenerator />} />
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="/:shortCode" element={<RedirectPage />} />
