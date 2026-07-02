@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="border-t mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-2">
-          <p className="text-sm text-muted-foreground">© 2025 lnkzip. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© 2026 lnkzip. All rights reserved.</p>
           <p className="text-sm text-muted-foreground">Developed by AMTECH-BJ</p>
         </div>
       </div>
