@@ -1,0 +1,33 @@
+# lnkzip
+
+> lnkzip is a free URL shortener and QR code generator with a public API. It creates short links with custom aliases, generates a QR code for every link, and tracks click analytics — with no sign-up required for basic use.
+
+lnkzip lets developers and marketers shorten long URLs into branded, memorable short links and instantly get a downloadable QR code for each one. Every shortened URL includes click tracking (total clicks, device, referrer) and can be created via the web app or the free HTTP API. Sign-up is optional and unlocks link history and per-link analytics.
+
+Key facts:
+
+- Free to use, no sign-up required for basic link shortening and QR generation
+- Public HTTP API available at no cost
+- Custom short aliases (e.g. `lnkzip.com/my-campaign`)
+- QR code generated automatically for every short link, downloadable as PNG
+- Click tracking: total clicks, device type, referrer
+- Optional free account for link history and per-link analytics dashboard
+- Built with React, Vite, and Supabase (Postgres + Edge Functions)
+
+## Pages
+
+- [Home](/): Shorten a URL and get a QR code in the browser
+- [QR Code Generator](/qr-code-generator): Convert any link to a downloadable QR code
+- [API Documentation](/api): Free HTTP API for URL shortening and QR generation
+- [About](/about): Who builds lnkzip and how it works
+- [Contact](/contact): Get in touch with the team
+- [Blog](/blog): Guides on URL shortening, QR codes, and link analytics
+
+## Blog
+
+- [Why Your Business Needs a Free URL Shortener in 2025](/blog/why-use-url-shortener)
+- [Complete Guide to QR Code Generation for Link Management](/blog/qr-code-generator-guide)
+- [Custom URL Shortener: Build Trust with Branded Links](/blog/custom-url-shortener-benefits)
+- [Master URL Analytics: Track and Optimize Your Links](/blog/url-analytics-tracking)
+- [Best Free URL Shortener with No Sign Up Required](/blog/free-url-shortener-no-signup)
+- [Link to QR Code: Converting URLs for Physical Marketing](/blog/link-to-qr-code-converter)

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
 import { AuthModal } from './AuthModal';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { Link2, User, LogOut, History, Settings, Crown } from 'lucide-react';
+import { User, LogOut, History, Settings, Crown } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { Logo } from './Logo';
 
 export const Navbar: React.FC = () => {
   const { user, signOut } = useAuth();
@@ -18,17 +20,14 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Link2 className="h-8 w-8 text-primary" />
-            <div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                LnkZip
-              </h1>
-              <p className="text-xs text-muted-foreground -mt-1">
-                Shorten • Track • Analyze
-              </p>
-            </div>
+        <div className="container mx-auto px-4 h-16 flex items-center justify-between gap-4">
+          <Logo />
+
+          <div className="hidden md:flex items-center gap-6 text-sm">
+            <Link to="/qr-code-generator" className="text-muted-foreground hover:text-foreground transition-colors">QR Generator</Link>
+            <Link to="/api" className="text-muted-foreground hover:text-foreground transition-colors">API</Link>
+            <Link to="/blog" className="text-muted-foreground hover:text-foreground transition-colors">Blog</Link>
+            <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">About</Link>
           </div>
 
           <div className="flex items-center gap-4">
@@ -48,36 +47,29 @@ export const Navbar: React.FC = () => {
                     <div className="flex flex-col space-y-1 leading-none">
                       <p className="font-medium">{user.email}</p>
                       <div className="flex items-center gap-2">
-                        <Badge variant="secondary" className="text-xs">
-                          Free Plan
-                        </Badge>
+                        <Badge variant="secondary" className="text-xs">Free Plan</Badge>
                       </div>
                     </div>
                   </div>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem disabled>
-                    <History className="mr-2 h-4 w-4" />
-                    <span>URL History</span>
+                    <History className="mr-2 h-4 w-4" /> <span>URL History</span>
                   </DropdownMenuItem>
                   <DropdownMenuItem disabled>
-                    <Crown className="mr-2 h-4 w-4" />
-                    <span>Upgrade to Premium</span>
+                    <Crown className="mr-2 h-4 w-4" /> <span>Upgrade to Premium</span>
                   </DropdownMenuItem>
                   <DropdownMenuItem disabled>
-                    <Settings className="mr-2 h-4 w-4" />
-                    <span>Settings</span>
+                    <Settings className="mr-2 h-4 w-4" /> <span>Settings</span>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={handleSignOut}>
-                    <LogOut className="mr-2 h-4 w-4" />
-                    <span>Sign out</span>
+                    <LogOut className="mr-2 h-4 w-4" /> <span>Sign out</span>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
               <Button onClick={() => setAuthModalOpen(true)}>
-                <User className="mr-2 h-4 w-4" />
-                Sign In
+                <User className="mr-2 h-4 w-4" /> Sign In
               </Button>
             )}
           </div>
