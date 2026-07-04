@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "sdk_version": "0.20.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://zyrtsgwvpxewgfpqxfmn.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "lnkzip-mcp",
+      "version": "0.1.0",
+      "title": "lnkzip MCP"
+    },
+    "tools": [
+      {
+        "name": "shorten_url",
+        "title": "Shorten URL",
+        "description": "Create a shortened URL (with QR code) for the signed-in user. Optionally provide a custom short code.",
+        "annotations": {
+          "readOnlyHint": false,
+          "openWorldHint": true
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "originalUrl": {
+              "type": "string",
+              "format": "uri",
+              "description": "The long URL to shorten."
+            },
+            "customCode": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 20,
+              "pattern": "^[a-z0-9-]+$",
+              "description": "Optional custom short code (letters, numbers, hyphens)."
+            }
+          },
+          "required": [
+            "originalUrl"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_urls",
+        "title": "List my shortened URLs",
+        "description": "List the signed-in user's shortened URLs with click counts, newest first.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "description": "Maximum number of URLs to return (default 20)."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
