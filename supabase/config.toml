@@ -7,4 +7,8 @@ verify_jwt = false
 verify_jwt = false
 
 [functions.get-analytics]
+[functions.get-analytics]
 verify_jwt = true
+
+[functions.mcp]
+verify_jwt = false
